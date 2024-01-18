@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>FitnessPro</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <!-- Navigation bar -->
+    
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="logo-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUfzd6D3SGj-FHvT5cJdcudIDUROJAFbEa31p6PG6vzihh2-Zomw3FecGqzw&s" alt="FitnessPro Logo">
+      </div>
+      <ul class="nav-links">
+        <li class="#home"><a href="#">FitnessPro</a></li>
+        <li class="#home"><a href="#">Home</a></li>
+        <li><a href="#exercise">Exercises</a></li>
+      </ul>
+    </div>
+  </nav>
+    <!-- Landing Page -->
+    <section class="landing_page" id="home">
+        <div class="home_container">
+            <div class="home_content">
+                <h1>Shape Yourself</h1>
+                <p>Experience a transformative journey to a healthier, stronger version of yourself with FitnessPro.</p>
+                <a href="#exercise" class="home_btn"><button type="button">Get Started</button></a>
+            </div>
+            <div class="home_img">
+                <img src="https://images.unsplash.com/photo-1571103189706-cd54b23e81f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzMyfHxmaXRuZXNzJTIwbG9nb3xlbnwwfHwwfHx8MA%3D%3D" alt="run">                
+            </div>
+        </div>
+    </section>    
+    <!-- Main Section -->
+    <section class="main_container" id="exercise">
+        <h1 class="title">Unleash your true Potential</h1>
+        <!-- Exercises list form -->
+        <div class="main_content">
+            <div class="exercise_content">
+                <div class="exercise_form">
+                    <form>
+                        <div class="form_group">
+                            <label for="goalName">Exercise Name: </label>
+                            <input type="text" class="form_control" id="goalName" placeholder="Enter exercise name">
+                        </div>
+                        <div class="form_group">
+                            <label for="description">Description: </label>
+                            <textarea class="form_control" id="description" rows="1"></textarea>
+                        </div>
+                        <div class="form_group">
+                            <label for="deadline">Timeline: </label>
+                            <input type="date" class="form_control" id="deadline">
+                        </div>
+                         <button type="submit" class="exercise_btn">Add Exercises</button>
+                        </form>
+                </div>
+                <div class="goal_exercise">
+                    <h1 class="title">My Exercises</h1>
+                    <div class="goal_content">
+                        <ul id="goalsList" class="goals_list"></ul>
+                    </div>
+                </div>
+            </div>
+            <div id="individualItemContainer" class="individual_item_container">
+                   
+            </div>
+        </div> 
+    </section>
+     
+     <!-- custom JS -->
+     <script src="/index.js"></script>
+    
+</body>
+</html>
