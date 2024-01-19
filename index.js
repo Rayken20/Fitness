@@ -1,6 +1,3 @@
-//to ensure that javaScript  code executes when the DOM is fully loaded.
-//Any code related to DOM manipulation should either go in pro or in a function called within pro.
-const pro = () => {
 // Get the form element and add a submit event listener
 const form = document.querySelector('form');
 form.addEventListener('submit', addGoal);
@@ -72,9 +69,9 @@ function onButtonClick() {
 }
 
 // Add event listeners
-document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
+// document.addEventListener('DOMContentLoaded', onButtonClick);
 
-const customButton = document.getElementById('customButton'); // Replace 'customButton' with the actual ID of your button
+const customButton = document.getElementById('clickMe'); // Replace 'customButton' with the actual ID of your button
 customButton.addEventListener('click', onButtonClick);
 
 // Function to get all goals from the server and display them on the page
@@ -178,5 +175,4 @@ function deletePhoto(photoUrl) {
 
 // Call the getGoals function when the page loads to display existing goals
 getGoals();
-}
-document.addEventListener('DOMContentLoaded', pro);
+
