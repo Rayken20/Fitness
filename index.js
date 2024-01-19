@@ -1,10 +1,13 @@
+//to ensure that javaScript  code executes when the DOM is fully loaded.
+//Any code related to DOM manipulation should either go in pro or in a function called within pro.
+const pro = () => {
 // Get the form element and add a submit event listener
 const form = document.querySelector('form');
 form.addEventListener('submit', addGoal);
 
 
 // API base URL
-const apiUrl = 'https://fitness-fgpb.onrender.com/exercises';
+const apiUrl = 'http://localhost:3000/exercises';
 
 // Function to handle form submit and add goal to the database. Prevent the page from being refreshed immediately and allow us to do something else instead.
 function addGoal(event) {
@@ -175,3 +178,5 @@ function deletePhoto(photoUrl) {
 
 // Call the getGoals function when the page loads to display existing goals
 getGoals();
+}
+document.addEventListener('DOMContentLoaded', pro);
