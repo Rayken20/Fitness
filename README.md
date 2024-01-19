@@ -48,7 +48,7 @@ Click the custom button to trigger an alert.
 Test the app to make sure it works as expected. You can use a tool like json-server to serve the db.json file and test the app locally.
 
 ## Important Note
-Ensure that the server at 'https://rayken20.github.io/fitapi/db.json' is accessible and functional for proper data storage and retrieval.
+Ensure that the server at ''https://fitness-fgpb.onrender.com/exercises' is accessible and functional for proper data storage and retrieval.
 ## Dependencies
 The code relies on the Fetch API to communicate with the server for CRUD operations.
 The HTML structure has elements with specific IDs, such as 'goalName', 'description', 'deadline', 'goalsList', and 'individualItemContainer'.

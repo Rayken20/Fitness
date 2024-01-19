@@ -2,7 +2,6 @@
 const form = document.querySelector('form');
 form.addEventListener('submit', addGoal);
 
-
 // API base URL
 const apiUrl = 'https://fitness-fgpb.onrender.com/exercises';
 
@@ -23,13 +22,13 @@ function addGoal(event) {
   const goal = { goalName, description, deadline };
 
   // Get the ul element where goals will be displayed
-const goalsList = document.getElementById('goalsList');
-goalsList.addEventListener('click', function(event) {
-  if (event.target.classList.contains('delete-button')) {
-    const goalId = event.target.dataset.goalId;
-    deleteGoal(goalId);
-  }
-});
+  const goalsList = document.getElementById('goalsList');
+  goalsList.addEventListener('click', function (event) {
+    if (event.target.classList.contains('delete-button')) {
+      const goalId = event.target.dataset.goalId;
+      deleteGoal(goalId);
+    }
+  });
 
   // Make a POST request to the server to add the goal to the database
   fetch(apiUrl, {
@@ -39,19 +38,19 @@ goalsList.addEventListener('click', function(event) {
     },
     body: JSON.stringify(goal),
   })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to add goal');
-    }
-    return response.json();
-  })
-  .then(addedGoal => {
-    // Retrieve the added goal from the server and display it in the UI
-    displayGoal(addedGoal);
-  })
-  .catch(error => {
-    console.error('Error adding goal:', error.message);
-  });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to add goal');
+      }
+      return response.json();
+    })
+    .then(addedGoal => {
+      // Retrieve the added goal from the server and display it in the UI
+      displayGoal(addedGoal);
+    })
+    .catch(error => {
+      console.error('Error adding goal:', error.message);
+    });
 
   // Clear the input fields
   goalNameInput.value = '';
@@ -59,38 +58,34 @@ goalsList.addEventListener('click', function(event) {
   deadlineInput.value = '';
 }
 
-  // Call the getGoals function when the page loads to display existing goals
-  getGoals();
+// Call the getGoals function when the page loads to display existing goals
+getGoals();
 
-// Function to handle the custom button click event
+// Function to handle the custom button click events
+const customButton = document.getElementById('clickMe'); 
+customButton.addEventListener('click', onButtonClick);
+
 function onButtonClick() {
   alert('Button clicked!');
- 
 }
-
-// Add event listeners
-// document.addEventListener('DOMContentLoaded', onButtonClick);
-
-const customButton = document.getElementById('clickMe'); // Replace 'customButton' with the actual ID of your button
-customButton.addEventListener('click', onButtonClick);
 
 // Function to get all goals from the server and display them on the page
 function getGoals() {
   // Make a GET request to the server to retrieve goals
   fetch(apiUrl)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Failed to retrieve goals');
-    }
-    return response.json();
-  })
-  .then(goals => {
-    // Retrieve the goals from the server and display them
-    goals.forEach(displayGoal);
-  })
-  .catch(error => {
-    console.error('Error retrieving goals:', error.message);
-  });
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to retrieve goals');
+      }
+      return response.json();
+    })
+    .then(goals => {
+      // Retrieve the goals from the server and display them
+      goals.forEach(displayGoal);
+    })
+    .catch(error => {
+      console.error('Error retrieving goals:', error.message);
+    });
 }
 
 // Function to display a single goal on the page
@@ -104,12 +99,13 @@ function displayGoal(goal) {
   <p>${goal.deadline}</p>
   <button class="delete-button" data-goal-id="${goal.id}">Delete</button>
 `;
- // Add click event listener to display individual item
- li.addEventListener('click', function() {
-  displayIndividualItem(goal);
-});
+  // Add click event listener to display individual item
+  li.addEventListener('click', function () {
+    displayIndividualItem(goal);
+  });
   goalsList.appendChild(li);
 }
+
 function displayIndividualItem(goal) {
   // Assuming you have an element to display individual items
   const individualItemContainer = document.getElementById('individualItemContainer');
@@ -169,10 +165,30 @@ function deleteGoal(id) {
 }
 
 function deletePhoto(photoUrl) {
-  
-  
+  // Assuming you have a function to delete a photo
+  // You can implement the logic to delete the photo using the photoUrl
 }
 
-// Call the getGoals function when the page loads to display existing goals
-getGoals();
-
+// Function to update a goal by ID
+function updateGoal(id, updatedGoal) {
+  // Make a PATCH request to the server to update the goal
+  fetch(`${apiUrl}/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(updatedGoal),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to update goal');
+      }
+      return response.json();
+    })
+    .then(updatedGoal => {
+      // Handle the updated goal as needed
+    })
+    .catch(error => {
+      console.error('Error updating goal:', error.message);
+    });
+}
