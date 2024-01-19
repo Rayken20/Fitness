@@ -7,7 +7,7 @@ form.addEventListener('submit', addGoal);
 
 
 // API base URL
-const apiUrl = 'http://localhost:3000/exercises';
+const apiUrl = 'https://rayken20.github.io/fitapi/db.json';
 
 // Function to handle form submit and add goal to the database. Prevent the page from being refreshed immediately and allow us to do something else instead.
 function addGoal(event) {
